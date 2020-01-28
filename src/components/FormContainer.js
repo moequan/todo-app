@@ -18,7 +18,7 @@ class FormContainer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ value: "" });
-    this.props.addTodo(this.state.value);
+    this.props.addTodo(this.props.value)
   }
 
   render() {
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
   return { state };
 };
 
-export default connect(mapStateToProps)(FormContainer);
+export default connect(mapStateToProps,{addTodo})(FormContainer) ;
