@@ -35,7 +35,10 @@ const initialState = {
       date: "2020-01-26T21:48:48.693Z",
       __v: 0
     }
-  ]
+  ],
+  loading: false,
+  feedback: false,
+  showFriend: false
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -59,7 +62,7 @@ const todoReducer = (state = initialState, action) => {
       __v: 0
     };
     state.items.push(newItem);
-    return Object.assign({},state)
+    return Object.assign({}, state);
   }
 
   return { ...state };

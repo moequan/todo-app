@@ -1,20 +1,15 @@
-import React from 'react';
-import FormContainer from './FormContainer';
-import ToDosContainer from './ToDosContainer';
-import ToDonesContainer from './ToDonesContainer';
-import Spinner from './Spinner';
-import NotFound from './NotFound';
-import { connect } from 'react-redux';
+import React from "react";
+import FormContainer from "./FormContainer";
+import ToDosContainer from "./ToDosContainer";
+import ToDonesContainer from "./ToDonesContainer";
+import Spinner from "./Spinner";
+import NotFound from "./NotFound";
+import { connect } from "react-redux";
 
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: [],
-      loading: true,
-      feedback: false,
-      showFriend: false
-    };
+    this.state = {};
   }
 
   // async componentDidMount() {
@@ -59,7 +54,11 @@ class MainContainer extends React.Component {
 }
 
 const mapsStateToProps = state => {
-  return { items: state.items };
+  return {
+    loading: state.loading,
+    feedback: state.feedback,
+    showFriend: state.showFriend
+  };
 };
 
 export default connect(mapsStateToProps)(MainContainer);

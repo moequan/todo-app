@@ -17,8 +17,9 @@ class FormContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.addTodo(this.state.value);
     this.setState({ value: "" });
-    this.props.addTodo(this.props.value)
+    
   }
 
   render() {
