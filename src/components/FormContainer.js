@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import { addTodo } from "../actions";
+import { connect } from "react-redux";
 
 class FormContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,7 +17,8 @@ class FormContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ value: '' });
+    this.setState({ value: "" });
+    this.props.addTodo(this.state.value);
   }
 
   render() {
@@ -37,4 +40,8 @@ class FormContainer extends React.Component {
   }
 }
 
-export default FormContainer;
+const mapStateToProps = state => {
+  return { state };
+};
+
+export default connect(mapStateToProps)(FormContainer);
